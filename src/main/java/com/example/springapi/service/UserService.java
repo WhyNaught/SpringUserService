@@ -26,5 +26,17 @@ public class UserService {
     public Optional<User> getUser(Integer id) {
         return userList.stream().filter(user -> (user.getId() == id)).findFirst();
     }
+
+    // in reality this would be connected to a postgresql database 
+    public String registerUser(String username, String email, String password) {
+        User newUser = new User(userList.size(), username, email, password); 
+        for (int i = 0; i < userList.size(); i++) {
+            if (newUser.getEmail() == userList.get(i).getEmail() || newUser.getUsername() == userList.get(i).getUsername()) {
+                return "User with this username or email already exists"; 
+            }
+        }
+        userList.add(newUser); 
+        return "User registered succesfully!"; 
+    }
 }
  
