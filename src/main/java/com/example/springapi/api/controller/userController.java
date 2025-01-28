@@ -31,7 +31,7 @@ public class userController {
 
     @PostMapping("/user/register")
     public String register(@RequestBody RegisterClass request) {
-        return UserService.registerUser(request.getUsername(), request.getEmail(), request.getPassword()); 
+        return UserService.RegisterUser(request.getUsername(), request.getEmail(), request.getPassword()); 
     }
     
 }
