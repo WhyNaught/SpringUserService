@@ -28,10 +28,10 @@ public class UserService {
     }
 
     // in reality this would be connected to a postgresql database 
-    public String registerUser(String username, String email, String password) {
+    public String RegisterUser(String username, String email, String password) {
         User newUser = new User(userList.size(), username, email, password); 
         for (int i = 0; i < userList.size(); i++) {
-            if (newUser.getEmail() == userList.get(i).getEmail() || newUser.getUsername() == userList.get(i).getUsername()) {
+            if (newUser.getEmail().equals(userList.get(i).getEmail()) || newUser.getUsername().equals(userList.get(i).getUsername())) {
                 return "User with this username or email already exists"; 
             }
         }
